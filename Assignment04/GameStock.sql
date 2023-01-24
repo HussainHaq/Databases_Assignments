@@ -1,8 +1,6 @@
 /*
 Husain Haq
-z1911897
-Prof. Lehuta
-CSCI 446
+CSCI 446_Database
 Assignment 4
 */
 
