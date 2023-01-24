@@ -1,0 +1,72 @@
+DROP TABLE Visit, Dog;
+
+CREATE TABLE Dog (
+    dogID int AUTO_INCREMENT PRIMARY KEY,
+    breed VARCHAR(20),
+    name VARCHAR(20),
+    weight DOUBLE
+);
+
+INSERT INTO Dog(breed, name, weight) VALUES ( 'German Shepard', 'Jimbo', 20.5);
+INSERT INTO Dog(breed, name, weight) VALUES ( 'American Eskimo', 'Kant', 35);
+INSERT INTO Dog(breed, name, weight) VALUES ( 'Labernese', 'Oreo', 80);
+INSERT INTO Dog(breed, name, weight) VALUES ( 'Mudi', 'Racer', 20.8);
+INSERT INTO Dog(breed, name, weight) VALUES ( 'Papillon', 'Pappy', 5.3);
+INSERT INTO Dog(breed, name, weight) VALUES ( 'Boxer', 'Ruff', 63.6);
+
+DESCRIBE Dog;
+
+SELECT * FROM Dog;
+
+CREATE TABLE Visit (
+    visitID int AUTO_INCREMENT PRIMARY KEY,
+	visitDate VARCHAR(20) NOT NULL,
+  	dogID Int,
+    FOREIGN KEY(dogID) REFERENCES Dog(dogID)
+);
+
+INSERT INTO Visit(visitDate, dogID) VALUES ( '12/10/2019', 1);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '01/11/2020', 1);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '01/13/2020', 4);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '01/21/2020', 2);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '02/03/2020', 4);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '02/10/2020', 3);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '03/12/2020', 5);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '03/13/2020', 6);
+INSERT INTO Visit(visitDate, dogID) VALUES ( '03/26/2020', 6);
+
+DESCRIBE Visit;
+
+SELECT * FROM Visit;
+
+ALTER TABLE Visit ADD bill DOUBLE;
+
+UPDATE Visit
+	SET bill = 50.25
+    WHERE visitID = 1;
+UPDATE Visit
+	SET bill = 65.98
+    WHERE visitID = 2;
+UPDATE Visit
+	SET bill = 25.55
+    WHERE visitID = 3;
+UPDATE Visit
+	SET bill = 70.32
+    WHERE visitID = 4;
+UPDATE Visit
+	SET bill = 200.90
+    WHERE visitID = 5;
+UPDATE Visit
+	SET bill = 145.88
+    WHERE visitID = 6;
+UPDATE Visit
+	SET bill = 80.50
+    WHERE visitID = 7;
+UPDATE Visit
+	SET bill = 43.65
+    WHERE visitID = 8;
+UPDATE Visit
+	SET bill = 97.32
+    WHERE visitID = 9;
+    
+SELECT * FROM Visit;
